@@ -1,8 +1,14 @@
 # Crave.js - Xichuan Noodles Storefront Template
 
-A production-ready Crave.js storefront tailored for Xichuan noodle houses. Built on Next.js 15, it delivers branded menu browsing, cart management, and theme customization while staying lean enough for instant Vercel deployments.
+> [!WARNING]
+> **Legacy visual reference only.** This repository pins the retired Storefront
+> SDK 1.x browser-key contract. Do not use it as a production starter, expose a
+> Crave API key in browser code, or use its one-click deployment flow. Build new
+> integrations from the current [Storefront SDK guide](https://docs.craveup.com/getting-started/storefront-sdk)
+> and treat this repository only as design and interaction reference material.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/craveup/xichuan-noodles-cravejs-nextjs-template&project-name=xichuan-noodles-storefront&env=NEXT_PUBLIC_CRAVEUP_API_KEY,NEXT_PUBLIC_LOCATION_ID,NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,NEXT_PUBLIC_ORG_SLUG)
+This Next.js 15 example demonstrates branded menu browsing, cart presentation,
+and theme customization for a noodle-house concept.
 
 ## Tech Stack
 
@@ -21,7 +27,7 @@ A production-ready Crave.js storefront tailored for Xichuan noodle houses. Built
 - Location-focused hero and CTA flow tailored to restaurants and dark kitchens
 - Mobile-first drawer, category navigation, and product dialogs
 - shadcn/ui + Radix primitives for accessible dialogs, drawers, and forms
-- Zero-config Vercel deployment plus `.env.example` for easy onboarding
+- Local visual study with `.env.example` containing public-only placeholders
 
 ## Demo
 
@@ -67,14 +73,12 @@ Environment variables live in `.env.local`. Start by copying the template file:
 cp .env.example .env.local
 ```
 
-Then replace the placeholders with your credentials:
+Use only non-sensitive public values while studying the local UI:
 
-- `NEXT_PUBLIC_CRAVEUP_API_KEY` - required for menu, cart, and availability data
-- `NEXT_PUBLIC_LOCATION_ID` - required to scope all menu queries to a single restaurant
+- Do not add `NEXT_PUBLIC_CRAVEUP_API_KEY`; the legacy SDK 1.x integration is not supported for a new live build
+- `NEXT_PUBLIC_LOCATION_ID` - optional location label for local UI study
 - `NEXT_PUBLIC_ORG_SLUG` - optional, unlocks richer branding metadata
 - `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` - optional, powers the embedded map module
-
-> Need CraveUp sandbox credentials? Email [hello@craveup.com](mailto:hello@craveup.com) and mention the Xichuan template deployment.
 
 ## Scripts
 
@@ -107,15 +111,14 @@ Then replace the placeholders with your credentials:
 1. **Branding and imagery** - Replace assets in `public/images/xichuan-noodles` with your photography.
 2. **Theme presets** - Update or add JSON files inside `public/themes` to match your color system.
 3. **Copy and layout** - Tweak hero, menu, and footer content under `src/app/components`.
-4. **Menu data** - Manage categories and items through the CraveUp dashboard; the template consumes live data.
+4. **Menu data** - Study the legacy data flow locally; use the current Storefront SDK guide for a new live integration.
 5. **UI primitives** - Extend buttons, drawers, and dialogs in `src/components/ui` if you need additional states.
 
-## Deployment
+## Deployment status
 
-1. Commit and push your repository to GitHub (or another Git provider).
-2. Visit [vercel.com/new](https://vercel.com/new) and import the repository.
-3. Add the same environment variables to the Vercel project settings.
-4. Click **Deploy** and share the live storefront URL with stakeholders.
+Do not deploy this legacy integration as a live ordering storefront. Reuse its
+visual ideas in a new application built against the current Storefront API and
+SDK contract instead.
 
 ## Support & Reference
 
@@ -127,7 +130,7 @@ Then replace the placeholders with your credentials:
 
 ## Next Steps
 
-1. Populate `.env.local` with your CraveUp credentials and optional Google Maps key.
+1. Run the example locally without a Crave API key and inspect the design patterns.
 2. Configure menu imagery, hero copy, and CTAs for your restaurant.
 3. Add additional sections or pages in `src/app` if you need loyalty, catering, or reservations flows.
 
