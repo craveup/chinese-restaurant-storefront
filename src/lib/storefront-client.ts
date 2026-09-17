@@ -4,14 +4,10 @@ import { CRAVEUP_PUBLIC_API_KEY } from "@/constants";
 
 const apiKey = CRAVEUP_PUBLIC_API_KEY;
 
-if (!apiKey) {
-  throw new Error(
-    "NEXT_PUBLIC_CRAVEUP_API_KEY must be defined to initialize the storefront SDK client."
-  );
-}
-
-export const storefrontClient = createStorefrontClient({
-  apiKey,
-  getAuthToken,
-  // baseUrl: "http://localhost:8000"
-});
+// The reserved .invalid host keeps keyless visual-reference builds offline.
+export const storefrontClient = apiKey
+  ? createStorefrontClient({ apiKey, getAuthToken })
+  : createStorefrontClient({
+      apiKey: "legacy-reference-disabled",
+      baseUrl: "https://legacy-reference.invalid",
+    });
